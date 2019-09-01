@@ -247,6 +247,7 @@ class App extends React.Component {
             'spells': [],
             'selectedId': false,
             'highlightedCasters': [],
+            'highlightedLevels': [],
             'editMode': false,
             'timeSinceLastSave': 0
         };
@@ -296,13 +297,22 @@ class App extends React.Component {
         link.click();
     }
 
-    handleHighlightClick(caster) {
+    handleHighlightCasterClick(caster) {
         if (this.state.highlightedCasters.includes(caster)) {
             this.setState({highlightedCasters: this.state.highlightedCasters.filter(hcaster => hcaster !== caster)});
         } else {
             var newCasters = this.state.highlightedCasters;
             newCasters.push(caster);
             this.setState({highlightedCasters: newCasters});
+        }
+    }
+    handleHighlightLevelClick(level) {
+        if (this.state.highlightedLevels.includes(level)) {
+            this.setState({highlightedLevels: this.state.highlightedLevels.filter(thisLevel => thisLevel !== level)});
+        } else {
+            var newLevels = this.state.highlightedLevels;
+            newLevels.push(level);
+            this.setState({highlightedLevels: newLevels});
         }
     }
 
@@ -376,13 +386,21 @@ class App extends React.Component {
                             {this.renderEditUi()}
                         </h3>
                         <div>
-                            <HighlightLabel>Highlight</HighlightLabel>
+                            <HighlightLabel>By Class</HighlightLabel>
                             {casters.map(caster => <StyledButton
                                 key={caster}
                                 label={caster}
                                 color={color[caster]}
                                 filled={this.state.highlightedCasters.includes(caster)}
-                                onClick={() => this.handleHighlightClick(caster)} />)}
+                                onClick={() => this.handleHighlightCasterClick(caster)} />)}
+                        </div>
+                        <div>
+                            <HighlightLabel>By Level</HighlightLabel>
+                            {[1..20].map(level => <StyledButton
+                                key={level}
+                                label={level}
+                                filled={this.state.highlightedLevels.includes(level)}
+                                onClick={() => this.handleHighlightLevelClick(level)} />)}
                         </div>
                     </Header>
                     <BoardWrapper>
