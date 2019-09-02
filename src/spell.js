@@ -2,15 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const color = {
+//    artificer: '#73A2FF',
+//    barbarian: '#0A5BFA',
     bard: '#E052E0',
     cleric: '#EB4747',
     druid: '#60DF20',
+//    fighter: '#FF9595',
+//    monk: '#BB6105',
+//    mystic:'#DEBD13',
     paladin: '#F5D63D',
     ranger: '#2EA02E',
+//    rogue: '#A50F0F',
     sorcerer: '#F2800D',
     warlock: '#A852FF',
     wizard: '#4C88FF'
 }
+
 
 function gradientize(casters) {
     let gradient = '';

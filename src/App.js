@@ -8,11 +8,17 @@ import avatar from './taurus2.jpg';
 import jenrsparks from './jenrsparks.png';
 
 const casters = [
+//    'artificer',
+//    'barbarian',
     'bard',
     'cleric',
     'druid',
+//    'fighter',
+//    'monk',
+//    'mystic',
     'paladin',
     'ranger',
+//    'rogue',
     'sorcerer',
     'warlock',
     'wizard'
@@ -176,7 +182,7 @@ const BoardWrapper = styled.div`
 
 const Board = styled.div`
     display: grid;
-    grid-template-columns: repeat(19, 1fr);
+    grid-template-columns: repeat(23, 1fr);
     grid-gap: 0.25em;
     margin: 0.5em;
 
@@ -294,7 +300,7 @@ class App extends React.Component {
             }
         }
     }
-
+    
     handleSave(jsonData) {
         const fileData = JSON.stringify(jsonData);
         const blob = new Blob([fileData], {type: "text/plain"});
@@ -441,8 +447,9 @@ class App extends React.Component {
                         <p>Ever wondered how big of an overlap there is between the spells of different casters in DnD? Do you want to know how similar the classes are? Do you like looking at trippy abstract modern art? Then this graphic is for you.</p>
                         <p><a href="http://github.com/dukeflipchart">dukeflipchart</a> took all 361 spells in the PHB, put them on a grid, colored them according to their caster classes, then meticulously arranged them by hand to form clusters as tight as possible. I have added the filtering by level for use if you're looking for a quick reference for your character, including multi-classing.</p>
                         <p>If you enjoyed this, or found it useful, you can <a href='https://ko-fi.com/B0B511KTL'>buy him a coffee on Ko-Fi!</a></p>
-                        <ColumnBreakerH2>Will this include spells from other sources (DMG, SCAG, XGE, AI)?</ColumnBreakerH2>
+                        <ColumnBreakerH2>Will this include spells from other sources (DMG, SCAG, <del>XGE</del>, AI)?</ColumnBreakerH2>
                         <p>Yeah! Maybe. It's, uh, a lot of work, so it will probably take time.</p>
+                        <p>I just went through and added in XGE, so yeah... we need a sorting algorithm before we do more of those.</p>
                         <h2>How did you make this?</h2>
                         <p><a href="http://github.com/dukeflipchart">dukeflipchart</a> used <a href="https://www.reddit.com/r/DnD/comments/2qs89e/5e_spell_reference_sheets_are_done/">u/Zolo49's spell spreadsheet</a> as a resource, made a JSON file out of it, displayed them on a CSS grid, and used React to create an editing interface that he used to order the spells into these positions.</p>
                         <p>I merely hijacked an already awesome codebase and added some further filtering to narrow down class levels.</p>
