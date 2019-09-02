@@ -1,6 +1,6 @@
 {
   "name": "dndspells",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "homepage": "https://dukeflipchart.github.io/dndspells",
   "dependencies": {
@@ -10,7 +10,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "typescript": "^3.6.2"
   },
   "scripts": {
     "start": "react-scripts start",

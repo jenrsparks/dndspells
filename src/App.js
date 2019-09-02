@@ -5,6 +5,7 @@ import { lighten } from 'polished';
 import { color, Spell, CasterLabel } from './spell';
 import Spells from './spells';
 import avatar from './taurus2.jpg';
+import jenrsparks from './jenrsparks.png';
 
 const casters = [
     'bard',
@@ -428,15 +429,18 @@ class App extends React.Component {
                     <Aside>
                         <h2>What is this thing?</h2>
                         <p>Ever wondered how big of an overlap there is between the spells of different casters in DnD? Do you want to know how similar the classes are? Do you like looking at trippy abstract modern art? Then this graphic is for you.</p>
-                        <p>I took all 361 spells in the PHB, put them on a grid, colored them according to their caster classes, then meticulously arranged them by hand to form clusters as tight as possible.</p>
-                        <p>If you enjoyed this, or found it useful, you can <a href='https://ko-fi.com/B0B511KTL'>buy me a coffee on Ko-Fi!</a></p>
-                        <ColumnBreakerH2>Will you include spells from other sources (DMG, SCAG, XGE, AI)?</ColumnBreakerH2>
+                        <p><a href="http://github.com/dukeflipchart">dukeflipchart</a> took all 361 spells in the PHB, put them on a grid, colored them according to their caster classes, then meticulously arranged them by hand to form clusters as tight as possible. I have added the filtering by level for use if you're looking for a quick reference for your character, including multi-classing.</p>
+                        <p>If you enjoyed this, or found it useful, you can <a href='https://ko-fi.com/B0B511KTL'>buy him a coffee on Ko-Fi!</a></p>
+                        <ColumnBreakerH2>Will this include spells from other sources (DMG, SCAG, XGE, AI)?</ColumnBreakerH2>
                         <p>Yeah! Maybe. It's, uh, a lot of work, so it will probably take time.</p>
                         <h2>How did you make this?</h2>
-                        <p>I used <a href="https://www.reddit.com/r/DnD/comments/2qs89e/5e_spell_reference_sheets_are_done/">u/Zolo49's spell spreadsheet</a> as a resource, made a JSON file out of it, displayed them on a CSS grid, and used React to create an editing interface that I used to order the spells into these positions.</p>
+                        <p><a href="http://github.com/dukeflipchart">dukeflipchart</a> used <a href="https://www.reddit.com/r/DnD/comments/2qs89e/5e_spell_reference_sheets_are_done/">u/Zolo49's spell spreadsheet</a> as a resource, made a JSON file out of it, displayed them on a CSS grid, and used React to create an editing interface that I used to order the spells into these positions.</p>
                         <Logo>
                             <a href="http://github.com/dukeflipchart">
                                 <img src={avatar} alt="Link to dukeflipchart on Github"/>
+                            </a>
+                            <a href="http://github.com/jenrsparks">
+                                <img src={jenrsparks} alt="Link to jenrsparks on Github"/>
                             </a>
                         </Logo>
                         <CopyrightMessage>
