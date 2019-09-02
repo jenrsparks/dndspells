@@ -25,14 +25,14 @@ const EditModeMessage = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 0.75em;
+    border-radius: 0.75rem;
     font-family: 'Lato', sans-serif;
-    padding: 1em;
-    margin: 1em 0;
+    padding: 1rem;
+    margin: 1rem 0;
 
     p {
         color: #222;
-        margin: 0 0 1em 0;
+        margin: 0 0 1rem 0;
     }
 `;
 
@@ -45,20 +45,20 @@ const ConicGradientMessage = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 0.75em;
+    border-radius: 0.75rem;
     font-family: 'Lato', sans-serif;
-    padding: 1em;
-    margin: 1em 0;
+    padding: 1rem;
+    margin: 1rem 0;
 `;
 
 const CopyrightMessage = styled.p`
     color: #666;
     column-span: all;
-    font-size: 0.75em;
+    font-size: 0.75rem;
 `;
 
 const HighlightLabel = styled.span`
-    margin-right: 0.5em;
+    margin-right: 0.5rem;
     color: #aaa;
     text-transform: uppercase;
 `;
@@ -220,10 +220,20 @@ const Aside = styled.aside`
     }
 `;
 
-const Logo = styled.div`
-    margin-top: 2em;
+const Logos = styled.div`
+    margin-top: 2rem;
     text-align: center;
     column-span: all;
+    a {
+        text-decoration: none;
+    }
+`;
+
+const Logo = styled.div`
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: inline;
     a {
         text-decoration: none;
     }
@@ -434,15 +444,20 @@ class App extends React.Component {
                         <ColumnBreakerH2>Will this include spells from other sources (DMG, SCAG, XGE, AI)?</ColumnBreakerH2>
                         <p>Yeah! Maybe. It's, uh, a lot of work, so it will probably take time.</p>
                         <h2>How did you make this?</h2>
-                        <p><a href="http://github.com/dukeflipchart">dukeflipchart</a> used <a href="https://www.reddit.com/r/DnD/comments/2qs89e/5e_spell_reference_sheets_are_done/">u/Zolo49's spell spreadsheet</a> as a resource, made a JSON file out of it, displayed them on a CSS grid, and used React to create an editing interface that I used to order the spells into these positions.</p>
-                        <Logo>
+                        <p><a href="http://github.com/dukeflipchart">dukeflipchart</a> used <a href="https://www.reddit.com/r/DnD/comments/2qs89e/5e_spell_reference_sheets_are_done/">u/Zolo49's spell spreadsheet</a> as a resource, made a JSON file out of it, displayed them on a CSS grid, and used React to create an editing interface that he used to order the spells into these positions.</p>
+                        <p>I merely hijacked an already awesome codebase and added some further filtering to narrow down class levels.</p>
+                        <Logos>
+                          <Logo>
                             <a href="http://github.com/dukeflipchart">
                                 <img src={avatar} alt="Link to dukeflipchart on Github"/>
                             </a>
+                          </Logo>
+                          <Logo>
                             <a href="http://github.com/jenrsparks">
                                 <img src={jenrsparks} alt="Link to jenrsparks on Github"/>
                             </a>
-                        </Logo>
+                          </Logo>
+                        </Logos>
                         <CopyrightMessage>
                             This is unofficial, fan-created work. I am not affiliated with Wizards of the Coast in any way. Dungeons & Dragons, D&D, their respective logos, and all Wizards titles and characters are property of Wizards of the Coast LLC in the U.S.A. and other countries.
                         </CopyrightMessage>

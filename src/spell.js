@@ -37,7 +37,7 @@ const StyledAdditionalCaster = styled(AdditionalCaster)`
     width: 25%;
     height: 25%;
     border-radius: 50%;
-    box-shadow: 0 0 0 0.15em #222;
+    box-shadow: 0 0 0 0.15rem #222;
     background-color: ${props => color[props.caster]};
 
     @media screen and (min-width: 1920px) {
@@ -92,29 +92,29 @@ const StyledSpellTooltip = styled(SpellTooltip)`
     visibility: hidden;
     display: block;
     position: absolute;
-    min-width: 10em;
+    min-width: 10rem;
     top: 115%;
     left: 50%;
     transform: translateX(-50%) translateY(10px);
     background-color: #111;
     color: #aaa;
-    font-size: 0.75em;
+    font-size: 0.75rem;
     line-height: 1.3;
-    padding: 0.75em;
-    border-radius: 0.5em;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
     transition: box-shadow 0.2s, opacity 0.2s, transform 0.2s;
-    box-shadow: 0 0 1em 0 rgba(0,0,0,0.5);
+    box-shadow: 0 0 1rem 0 rgba(0,0,0,0.5);
     z-index: 2;
 
     :before {
         content: '';
         position: absolute;
-        left: calc(50% - 0.5em);
-        top: -0.5em;
+        left: calc(50% - 0.5rem);
+        top: -0.5rem;
         width: 0;
         height: 0;
         border-style: solid;
-        border-width: 0 0.5em 0.5em 0.5em;
+        border-width: 0 0.5rem 0.5rem 0.5rem;
         border-color: transparent transparent #111 transparent;
     }
 
@@ -130,8 +130,8 @@ const StyledSpellTooltip = styled(SpellTooltip)`
 
     h4 {
         border-bottom: 1px solid #333;
-        padding-bottom: 0.5em;
-        margin-bottom: 0.5em;
+        padding-bottom: 0.5rem;
+        margin-bottom: 0.5rem;
     }
 
     p {
@@ -201,7 +201,7 @@ export const StyledSpell = styled.div.attrs({
     padding-top: 100%;
     border-radius: 50%;
     position: relative;
-    ${props => props.selected ? 'box-shadow: 0 0 0 0.1em #fff;' : ''}
+    ${props => props.selected ? 'box-shadow: 0 0 0 0.1rem #fff;' : ''}
     ${props => props.selected ? 'z-index: 2;' : ''}
     ${props => (props.hasOpacity || props.highlightColors.length || props.selected) ? '' : 'opacity: 0.25;'}
     transition: box-shadow 0.2s, opacity 0.2s;
@@ -212,7 +212,7 @@ export const StyledSpell = styled.div.attrs({
     }
 
     :hover {
-        ${props => props.selected ? 'box-shadow: 0 0 0 0.2em #fff;' : 'box-shadow: 0 0 0 0.25vh #222, 0 0 0 0.5vh #fff;'}
+        ${props => props.selected ? 'box-shadow: 0 0 0 0.2rem #fff;' : 'box-shadow: 0 0 0 0.25vh #222, 0 0 0 0.5vh #fff;'}
         opacity: 1;
         z-index: 2;
 
