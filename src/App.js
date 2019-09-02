@@ -15,7 +15,8 @@ const casters = [
     'sorcerer',
     'warlock',
     'wizard'
-]
+];
+const levels = [0,1,2,3,4,5,6,7,8,9];
 
 const EditModeMessage = styled.div`
     background-color: ${color.paladin};
@@ -105,7 +106,7 @@ const StyledButton = styled(Button)`
             ? props.color
                 ? lighten(0.1, props.color)
                 : '#ccc'
-            : '#222' };;
+            : '#222' };
     }
 `;
 
@@ -119,10 +120,6 @@ function swap(spells, i1, i2) {
         }
     });
 }
-
-const ResetButtonWrapper = styled.div`
-    display: inline;
-`;
 
 const Wrapper = styled.div`
     font-size: 3vw;
@@ -306,9 +303,10 @@ class App extends React.Component {
             this.setState({highlightedCasters: newCasters});
         }
     }
+
     handleHighlightLevelClick(level) {
         if (this.state.highlightedLevels.includes(level)) {
-            this.setState({highlightedLevels: this.state.highlightedLevels.filter(thisLevel => thisLevel !== level)});
+            this.setState({highlightedLevels: this.state.highlightedLevels.filter(hLevel => hLevel !== level)});
         } else {
             var newLevels = this.state.highlightedLevels;
             newLevels.push(level);
@@ -341,9 +339,15 @@ class App extends React.Component {
         }
     }
 
-    getHighlightColors(casters) {
+    getHighlightColors(casters, spellLevel) {
+      var filterClasses = this.state.highlightedCasters.length !== 0;
+      var levelMatch = this.state.highlightedLevels.length === 0 || this.state.highlightedLevels.includes(spellLevel);
+      var filteredClassList = casters.filter(value => this.state.highlightedCasters.includes(value));
 
-        return casters.filter(value => this.state.highlightedCasters.includes(value));
+      if(levelMatch) {
+        return filterClasses ? filteredClassList : casters;
+      }
+      return [];
     }
 
     renderEditUi() {
@@ -396,9 +400,9 @@ class App extends React.Component {
                         </div>
                         <div>
                             <HighlightLabel>By Level</HighlightLabel>
-                            {[1..20].map(level => <StyledButton
+                            {levels.map(level => <StyledButton
                                 key={level}
-                                label={level}
+                                label={level === 0 ? "Cantrips" : level}
                                 filled={this.state.highlightedLevels.includes(level)}
                                 onClick={() => this.handleHighlightLevelClick(level)} />)}
                         </div>
@@ -414,8 +418,8 @@ class App extends React.Component {
                                 additionalCastersShown={ this.state.highlightedCasters.length === 0 ? i.additionalCasters : []}
                                 level={i.level}
                                 selected={this.state.selectedId === i.id ? true : false}
-                                hasOpacity={this.state.highlightedCasters.length === 0}
-                                highlightColors={this.getHighlightColors(i.casters)}
+                                hasOpacity={this.state.highlightedCasters.length === 0 && this.state.highlightedLevels.length === 0}
+                                highlightColors={this.getHighlightColors(i.casters, i.level)}
                                 coordinates={i.coordinates}
                                 onClick={() => this.handleClick(i.id)}
                             />)}
@@ -432,7 +436,7 @@ class App extends React.Component {
                         <p>I used <a href="https://www.reddit.com/r/DnD/comments/2qs89e/5e_spell_reference_sheets_are_done/">u/Zolo49's spell spreadsheet</a> as a resource, made a JSON file out of it, displayed them on a CSS grid, and used React to create an editing interface that I used to order the spells into these positions.</p>
                         <Logo>
                             <a href="http://github.com/dukeflipchart">
-                                <img src={avatar} />
+                                <img src={avatar} alt="Link to dukeflipchart on Github"/>
                             </a>
                         </Logo>
                         <CopyrightMessage>
