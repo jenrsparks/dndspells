@@ -2,7 +2,7 @@
   "name": "dndspells",
   "version": "0.2.0",
   "private": true,
-  "homepage": "https://dukeflipchart.github.io/dndspells",
+  "homepage": "https://jenrsparks.github.io/dndspells",
   "dependencies": {
     "@babel/runtime": "^7.5.5",
     "gh-pages": "^2.1.1",
